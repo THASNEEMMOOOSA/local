@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %} Update Details of  ID:{{p.id}}-{{p.name}}  {% endblock %}
+
+
+{% block content %}
+
+<h1>Update details:</h1>
+
+
+    <form action="update/" method="POST">
+        {% csrf_token %}
+
+        <label for="name">Name:</label><br>
+        <input type="text" name="name" id="name" value="{{p.name}}">   <br> <br>
+
+        <label for="age">Age:</label><br>
+        <input type="number" name="age" id="age" value="{{p.age}}">   <br><br>
+
+        <label for="city">City:</label><br>
+        <input type="text" name="city" id="city" value="{{p.city}}"> <br><br>
+        
+        <label for="dob">DOB:</label><br>
+        <input type="date" name="dob" id="dob" value="{{p.dob}}"><br><br>
+
+        <input type="submit" value="Update">
+
+    </form>
+    <a href="/persons/pdetails/{{p.id}}/">Cancel</a>
+
+    {% endblock %}
